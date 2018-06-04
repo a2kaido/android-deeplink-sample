@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.github.a2kaido.deeplink">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- a2kaido://sample -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="a2kaido" android:host="sample" />
+            </intent-filter>
+
+            <!-- a2kaido://a2kaido.github.io/ice -->
+            <!-- a2kaido://a2kaido.github.io/cream -->
+            <!-- https://a2kaido.github.io/ice -->
+            <!-- https://a2kaido.github.io/cream -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="a2kaido" android:host="a2kaido.github.io" android:pathPrefix="/ice" />
+                <data android:scheme="https" android:host="a2kaido.github.io" android:pathPrefix="/cream" />
+            </intent-filter>
+
+            <!-- a2kaido://a2kaido.github.io/sand -->
+            <!-- a2kaido://a2kaido.github.io/witch: no reaction -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="a2kaido" android:host="a2kaido.github.io" android:pathPrefix="/sand" />
+            </intent-filter>
+
+            <!-- https://a2kaido.github.io/witch -->
+            <!-- https://a2kaido.github.io/sand: go to browser-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="a2kaido.github.io" android:pathPrefix="/witch" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
